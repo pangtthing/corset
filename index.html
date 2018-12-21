@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>탈코르셋: 꾸미지않을 자유</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR" rel="stylesheet">
+	<script src="jquery-3.1.0.min.js"></script>
+	<style type="text/css">
+		body {font-family: 'Noto Serif KR', sans-serif; margin:0px; padding:0px;}
+		body p {margin:0px; padding:0px;}
+		
+		.header1 {font-size:3em}
+		.header2 {font-size:2em}
+
+		#title {margin:0px; background: url(img/title.png) 50% 0 no-repeat fixed; 
+		height: 500px;  
+		margin: 0 auto; 
+   		width: 100%; 
+   		max-width: 1920px; 
+   		position: relative;}
+		#title1 {position:absolute; color:black; font-size:6em; left:10%; padding-top:130px;}
+		#title2 {position:absolute; color:black; font-size:2.3em; left:11%; padding-top:255px;}
+
+
+		#corset {position:relative; background-color:#cdcdcd; text-align:center; padding-bottom:100px; margin:0px;}
+		#corsetText1 {margin:0px; padding-top:120px; font-size:2.2em;}
+		#corsetImg {width:350px; padding-top:50px;}
+		#corsetText2 {margin:0px; padding-top:70px; line-height:2em;}
+
+		#female {position:relative; height:700px; margin:0px;}
+		.femaleText {position:relative; margin:0px; height:60px; font-size:3em; text-align:center; font-weight:bold;}
+		#femaleText2 {position:absolute; color:red; top:200px; left:50%; transform:translateX(-50%); font-size:5em;}
+		#femaleText3 {position:absolute; top:500px; left:50%; transform:translateX(-50%); font-size:4em;}
+
+		#male {position:relative; background-color:#cdcdcd; text-align:center; height:1950px;}
+
+		.maleDiv {position:relative; width:1000px; height:220px; left:50%; transform:translateX(-50%); padding-top:100px;}
+		#maleText1 {position:absolute; top:130px; left:46%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText2 {position:absolute; top:130px; left:54%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText3 {position:absolute; top:130px; left:46%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText4 {position:absolute; top:130px; left:54%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText5 {position:absolute; top:130px; left:43%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText6 {position:absolute; top:130px; left:57%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText7 {position:absolute; top:130px; left:46%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText8 {position:absolute; top:130px; left:54%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText9 {position:absolute; top:130px; left:46%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleText10 {position:absolute; top:130px; left:54%; transform:translateX(-50%); transition: all 1s; font-size:4em;}
+		#maleFinal {margin:0px; padding-top:70px; line-height:2em;}
+
+		button{position:absolute; top:260px; left:50%; width:80px; height:30px; border-radius: 3px; border:none; background: #ffffff; left:50%; transform:translateX(-50%)}
+		button:hover{background: black; color:white; cursor:pointer;}
+		button:focus{outline:none;}
+		
+
+		#lalala {position:relative;
+		margin:0px; background: url(img/pattern.png) 50% 0 no-repeat fixed; 
+		margin: 0 auto; 
+   		width: 100%; 
+   		max-width: 1920px; 
+   		position: relative;}
+   		#lalaText {position:relative; font-size:3em; line-height:1.5em;}
+
+		#makeUp {position:relative; background-color:white; background-color:#cdcdcd;}
+		#makeUpText0 {margin:0px; padding-top:250px; font-size:1.2em; text-align:center;}
+		#makeUpText {margin:0px;  padding-top:200px; font-size:1.2em; text-align:center;}
+		#makeUpTextEnd {margin:0px;  padding-top:200px; padding-bottom:250px; font-size:1.2em; text-align:center;}
+		#makeUpImg1 {margin:0px; position:absolute; top:10%; transform:translateX(30%) translateY(-2%); cursor:pointer;}
+		#makeUpImg2 {margin:0px; position:absolute; top:10%; transform:translateX(200%) translateY(-2%); cursor:pointer;}
+		#makeUpImg3 {margin:0px; position:absolute; width:700px; top:30%; transform:translateX(130%) translateY(-2%); cursor:pointer;}
+		#makeUpImg4 {margin:0px; position:absolute; top:55%; transform:translateX(150%); cursor:pointer;}
+
+		#men {position:relative; text-align:center;}
+		#mendress {position:relative; width:400px; height:755px; padding-top:30px; background:url('img/men1.png'); left:50%; transform:translateX(-50%)}
+		#red {position:absolute; top:980px; left:46%; transform:translateX(-50%); width:30px; height:30px; border-radius:15px; background-color:#cf2e34}
+		#yellow {position:absolute; top:980px; left:50%; transform:translateX(-50%); width:30px; height:30px; border-radius:15px; background-color:#f9c263}
+		#blue {position:absolute; top:980px; left:54%;  transform:translateX(-50%); width:30px; height:30px; border-radius:15px; background-color:#3f475e}
+
+		#menText1 {margin:0px; padding-top:80px; font-size:3em; line-height:1.5em;}
+		#menText2 {margin:0px; padding-top:50px; font-size:2em; line-height:1.5em;}
+		#menText3 {margin:0px; padding-top:30px; line-height:2em; padding-bottom:120px;}
+
+		#return {background-color:#cdcdcd; text-align:center;}
+		#returnImg {margin:0px; padding-top:100px; width:250px;}
+		#returnText {margin:0px; padding-top:30px; font-size:1.3em;}
+		#returnText2 {margin:0px; padding-top:100px; line-height:1.5em; padding-bottom:60px;}
+
+		#isu {margin:0px; padding-top:100px; line-height:1.5em; padding-bottom:80px; text-align:center;}
+		#isuDiv1 {width:600px; transform:translateX(60%); left:50px; padding-bottom:100px;transition: all 1s;}
+		#isuDiv1:hover {font-size:1.5em; line-height:1.7em;}
+		#isuText {font-size:1.5em; line-height:2em; transition: all 1s;}
+		#isuText:hover { font-size:2em;} 
+		#ssipal {padding-top:120px; width:450px; transform:translateX(200%); padding-bottom:70px;transition: all 1s;}
+		#ssipal:hover {font-size:1.5em; line-height:1.7em;}
+		#final {transition: all 1s;}
+		#final:hover {font-size:2em;}
+
+		#resource {background-color:#cdcdcd; text-align:center; height:250px;}
+		#resource {padding-top:50px;  line-height:1.5em;}
+
+		#footer {height:100px; text-align:center;}
+		#footerText {padding-top:60px; line-height:1.5em;}
+	</style>
+</head>
+<body>
+	<div id="title">
+		<p id=title1>탈 코르셋</p>
+		<p id=title2>: 꾸미지 않을 자유</p>
+	</div>
+
+
+	<div id="corset">
+		<p id="corsetText1">코르셋</p>
+		<img src="img/corset.png" id="corsetImg">
+		<p id="corsetText2">여성의 몸매를 날씬하게 만들기 위해 고정하는 속옷이다.<br>페미니즘 용어로 사용될 때는 화장, 날씬한 몸매, 제모, 긴 머리 등<br>여성에게만 강요되는 외모 기준을 상징한다.</p>
+	</div>
+
+
+	<div id="female">
+		<p id="femaleText2">여성성</p>
+		<div class="femaleText drag" style="top:30%; left:30%">감성적이다</div>
+		<div class="femaleText drag" style="top:32%; left:35%">여리여리하다</div>
+		<div class="femaleText drag" style="top:34%; left:50%">갸날프다</div>
+		<div class="femaleText drag" style="top:36%; left:45%">예쁘다</div>
+		<div class="femaleText drag" style="top:38%; left:55%">날씬하다</div>
+		<div class="femaleText drag" style="top:40%; left:53%">귀엽다</div>
+		<div class="femaleText drag" style="top:20%; left:50%">섬세하다</div>
+		<div class="femaleText drag" style="top:22%; left:49%">조신하다</div>
+		<div class="femaleText drag" style="top:24%; left:48%">얌전하다</div>
+		<div class="femaleText drag" style="top:26%; left:34%">아름답다</div>
+		<div class="femaleText drag" style="top:28%; left:37%">부드럽다</div>
+		<div class="femaleText drag" style="top:22%; left:50%">나약하다</div>
+		<div class="femaleText drag" style="top:24%; left:31%">사근사근하다</div>
+		<div class="femaleText drag" style="top:26%; left:54%">도도하다</div>
+		<div class="femaleText drag" style="top:28%; left:50%">육감적이다</div>
+		<div class="femaleText drag" style="top:30%; left:39%">온순하다</div>
+		<div class="femaleText drag" style="top:32%; left:42%">조용하다</div>
+		<div class="femaleText drag" style="top:34%; left:45%">깔끔하다</div>
+		<div class="femaleText drag" style="top:36%; left:47%">수동적이다</div>
+		<div class="femaleText drag" style="top:38%; left:48%">복종하다</div>
+		<div class="femaleText drag" style="top:40%; left:52%">약하다</div>
+		<div class="femaleText drag" style="top:38%; left:40%">관능적이다</div>
+		<p id="femaleText3">?</p>
+		<script type="text/javascript">
+	//아래 코드를 삽입하면 drag 클래스가 적용된 객체들은 드래그가 가능합니다.
+	(function(){
+		var d = false;
+		var target,dx,dy;
+		var t = document.getElementsByClassName("drag");
+		for(var i=0; i<t.length; i++){
+			t[i].style.display = "block";
+			t[i].style.position = "absolute";
+			t[i].style.cursor = "pointer";
+			t[i].ondragstart = function(e){e.preventDefault();};
+			t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+			t[i].onmouseup = function(){ d = false;}
+			window.onmousemove = function(e){ 
+				if(d){ target.style.left = (e.clientX-dx) + "px";
+					target.style.top = (e.clientY-dy) + "px";}
+			}
+		}
+	})();
+		</script>
+
+		</div>
+
+
+	
+
+	<div id="male">
+			<div class="maleDiv">
+					<div id="maleText1">남</div>
+					<div id="maleText2">여</div>
+					<button type="button1" id="button1" onclick="cssChange1()">reverse</button>
+			</div>
+	<script type="text/javascript">
+		function cssChange1() {
+    var x = document.getElementById("maleText1");
+    var y = document.getElementById("maleText2");
+    x.style.left = "54%";
+    y.style.left = "46%";
+	}
+	</script>
+
+	<div class="maleDiv">
+					<div id="maleText3">부</div>
+					<div id="maleText4">모</div>
+					<button type="button2" id="button2" onclick="cssChange2()">reverse</button>
+			</div>
+	<script type="text/javascript">
+		function cssChange2(){
+    var r = document.getElementById("maleText3");
+    var t = document.getElementById("maleText4");
+    r.style.left = "54%";
+    t.style.left = "46%";
+	}
+	</script>
+
+	<div class="maleDiv">
+					<div id="maleText5">신사</div>
+					<div id="maleText6">숙녀</div>
+					<button type="button3" id="button3" onclick="cssChange3()">reverse</button>
+			</div>
+	<script type="text/javascript">
+		function cssChange3(){
+    var r = document.getElementById("maleText5");
+    var t = document.getElementById("maleText6");
+    r.style.left = "57%";
+    t.style.left = "43%";
+	}
+	</script>
+
+	<div class="maleDiv">
+					<div id="maleText7">암</div>
+					<div id="maleText8">수</div>
+					<button type="button4" id="button4" onclick="cssChange4()">reverse</button>
+			</div>
+	<script type="text/javascript">
+		function cssChange4(){
+    var r = document.getElementById("maleText7");
+    var t = document.getElementById("maleText8");
+    r.style.left = "54%";
+    t.style.left = "46%";
+	}
+	</script>
+
+	<div class="maleDiv">
+					<div id="maleText9">년</div>
+					<div id="maleText10">놈</div>
+					<button type="button5" id="button5" onclick="cssChange5()">reverse</button>
+			</div>
+	<script type="text/javascript">
+		function cssChange5(){
+    var r = document.getElementById("maleText9");
+    var t = document.getElementById("maleText10");
+    r.style.left = "54%";
+    t.style.left = "46%";
+	}
+	</script>
+
+	<p id="maleFinal">“‘부모’, ‘봉황’, ‘신사 숙녀 여러분!’과 같이 좋은 것은 주로 남자 쪽이 먼저 나오지만,
+		<br>‘암수’, ‘연놈’과 같이 나쁜 것은 주로 여자 쪽이 먼저 나오는 것은
+		<br>남녀를 차별해 온 우리 사회의 폐습을 반영하는 것으로 볼 만하다.”</p>
+		<br><br>〈‘핫팬츠’와 ‘한뼘바지’의 차이〉《쉼표, 마침표 15호》  
+
+
+
+	</div>
+	
+	<div id="lalala">
+		<section id="home" data-speed="2" data-type="background">
+		<p id="lalaText">된장녀</p>
+		<p id="lalaText">김치녀</p>
+		<p id="lalaText">메갈년</p>
+		<p id="lalaText">과일 좀 깎아라</p>
+		<p id="lalaText">커피 좀 타와라</p>
+		<p id="lalaText">밥 좀 차려봐라</p>
+		<p id="lalaText">화장 좀 하고 다녀라</p>
+		<p id="lalaText">화장하는 법 좀 배워라</p>
+		<p id="lalaText">여자애가 피부 관리 좀 해야지</p>
+		<p id="lalaText">여자애 방이 그게 뭐냐</p>
+		<p id="lalaText">여자애가 조신하지 못하게</p>
+		<p id="lalaText">암탉이 울면 집안이 망한다고</p>
+		<p id="lalaText">어디 여자가 그런 일을 하려고 해</p>
+		<p id="lalaText">여자 직업에 이 정도면 돈 많이 받지</p>
+		<p id="lalaText">여자는 좋은 남자 만나는게 가장 좋은 인생이지</p>
+		<p id="lalaText">여자가 담배피면 애한테 안 좋지</p>
+		<p id="lalaText">너는 살만 빼면 좀 예쁠 것 같은데</p>
+		<p id="lalaText">쌍수 안하니?</p>
+		<p id="lalaText">여자애 옷차림이 그게 뭐니</p>
+		<p id="lalaText">어디 남자하는 일에 여자가 감히</p>
+		<p id="lalaText">여자의 적은 여자</p>
+		<p id="lalaText">여자치고 게임 잘하시네요</p>
+		<p id="lalaText">여자인데 탱커하시네요?</p>
+		<p id="lalaText">걔는 줘도 안먹는다</p>
+		<p id="lalaText">너 혹시 브라 안했니?</p>
+		<p id="lalaText">여대 가면 시집 잘간대</p>
+		<p id="lalaText">여자 나이는 계란 한판</p>
+		<p id="lalaText">넌 성형 안하니?</p>
+		<p id="lalaText">여자애가 많이 먹네</p>
+	</section>
+	</div>
+
+
+	<div id="makeUp">
+		<p id="makeUpText0">화장품은 필요 이상으로 상품을 구매하도록 짜여진 소비사회의 대표적 공산품이다.</p>
+		<p id="makeUpText">화장은 얼굴의 체계를 만들고, 얼굴을 모델에 따라 대량 생산한다.</p>
+		<p id="makeUpText">성 상품화와 소비사회의 강요된 미의 전형과 관련이 있으며 이미지와 가호에 의해 표시된 것으로,</p>
+		<p id="makeUpText">미의 기표가 계산되고 그 계산에 따라 구성된 미를 가공하며</p>
+		<p id="makeUpTextEnd">끊임없이 유행을 만들고 새로운 현실 원칙을 생산한다.</p>
+		<img src="img/broken1.png" id="makeUpImg1" onclick="makeUpImg1()">
+		<img src="img/broken4.png" id="makeUpImg2" onclick="makeUpImg2()">
+		<img src="img/broken5.png" id="makeUpImg3" onclick="makeUpImg3()">
+		<img src="img/broken6.png" id="makeUpImg4" onclick="makeUpImg4()">
+
+
+	<script type="text/javascript">
+		function makeUpImg1() {
+    var x = document.getElementById("makeUpImg1");
+    x.style.width = "0px";
+	}
+		function makeUpImg2() {
+    var y = document.getElementById("makeUpImg2");
+    y.style.width = "0px";
+	}
+		function makeUpImg3() {
+    var z = document.getElementById("makeUpImg3");
+    z.style.width = "0px";
+	}
+		function makeUpImg4() {
+    var t = document.getElementById("makeUpImg4");
+    t.style.width = "0px";
+	}
+	</script>
+	</div>
+
+
+	<div id="men">
+		<p id="menText1">“아니다!
+		<br>나는 내가 꾸미고 싶어서 꾸민다!”</p>
+
+		<div id="mendress"></div>
+		<button id="red" onclick="dress1()"></button>
+		<button id="yellow" onclick="dress2()"></button>
+		<button id="blue" onclick="dress3()"></button>
+
+		<script type="text/javascript">
+	function dress1() {
+	var x = document.getElementById("mendress");
+	x.style.background = "url('img/men1.png')";
+	}
+
+	function dress2() {
+    var x = document.getElementById("mendress");
+    x.style.background = "url('img/men2.png')";
+	}
+
+	function dress3() {
+    var x = document.getElementById("mendress");
+    x.style.background = "url('img/men3.png')";
+	}
+
+		</script>
+
+		<p id="menText2">예쁜가?
+		<br>아름다운가?</p>
+
+		<p id="menText3">우리는 항상 안예쁠 자유가 없는 곳에서 예쁠 자유를 먼저 찾는다.
+		<br>흔히 말하는 「여장대회」에 나가는 남자들은 평소에 여성들이 입고 다니는 원피스, 치마. 혹은 우스꽝스러운 화장을 하고 나온다.
+		<br>「여장」을 한 남자들은 여성 연예인들이 취하는 요염한 포즈를 우스꽝스럽게 따라하고, 관중들을 이를 보며 웃는다.
+		<br>그들도 아는 것이다.
+		<br>이런 옷차림과 꾸밈은 인간다운 것이 아니며 철저히 대상화되기 위한 행동이라는 것을.
+		<br>
+		<br>“맙소사, 꾸밀 자유라니.
+		<br>그건 자유가 아니라 기만이지...”
+		<br>《탈코일기》</p>
+	</div>
+
+	<div id="return">
+		<img src="img/corset.png" id="returnImg">
+		<p id="returnText">코르셋은</p>
+		<img src="img/corset.png" id="returnImg">
+		<p id="returnText">대물림</p>
+		<img src="img/corset.png" id="returnImg">
+		<p id="returnText">대물림 된다.</p>
+		<p id="returnText2">
+			대학생 고예리(20)씨는 교회에서
+			<br>만난 여중생들이 자신의
+			<br>화장에 대해
+			<br>‘품평회’를
+			<br>하는 모습에
+			<br>충격을 받고
+			<br>탈코르셋 운동을
+			<br>시작했다. 화장이
+			<br>여성만의 전유물로 인식되며
+			<br>어린 여중생들에게까지 대물림되고
+			<br>있다는 생각이 들었기 때문이다.
+		</p>		
+	</div>
+
+
+	<div id="isu">
+		<p id="isuDiv1">서울 지하철 이수역 주변의 한 주점에서 벌어진 이른바 ‘이수역 폭행사건’이 논란이 되고 있습니다. 경찰은 남성 3명과 여성 2명을 쌍방폭행으로 입건했는데요. 양측의 주장이 엇갈리고 있습니다. 여성 일행은 머리뼈가 보일 정도로 맞았다면서 붕대를 감은 사진을 한 사이트에 올렸습니다. 사건 당시에 옆 테이블의 커플과 시비가 붙었는데 아무런 관계가 없는 남성 일행으로부터 남성혐오 사이트, 메갈의 회원을 처음 본다, 얼굴이 왜 그러냐 등의 폭언을 듣고 폭행까지 당했다고 주장했습니다. 여성들의 지인 역시 화장을 하지 않고 머리가 짧다는 이유로 폭행을 당했다고 주장했습니다. 반면에 남성들은 이 여성 일행이 주점에서 시끄럽게 떠들어서 조용히 해달라고 했는데 먼저 시비를 걸었다고 주장했습니다. 한편, 여성 일행과 먼저 시비가 붙은 커플이라고 주장하는 누리꾼 역시 인터넷에 글을 올렸는데요. 남자친구와 술을 마시고 있었는데 여성 일행이 먼저 남성혐오 용어인 '흉자·한남커플'이라는 말로 조롱을 했다'고 주장했습니다. 경찰은 오늘(15일)부터 양쪽 모두를 소환 조사하고 CCTV와 휴대전화 동영상을 분석하면서 본격적인 수사에 나섰는데요. 청와대 국민청원 게시판에는 하루 만에 30만 명 넘는 사람들이 청원에 참여했습니다.
+
+		
+		<br>
+		<br>2018. 11. 15.
+		</p>
+		사건 당시
+		<p id="isuText">
+		<br>"여자들이 먼저 잘못한거 아니냐"
+		<br>"여자들이 맞을 짓 했네"
+		<br>"양쪽 상황을 모두 들어봐야..."
+		<br>"여자들 말은 다 거짓말, 주작."
+	</p>
+		<div id="ssipal">라며 여성의 잘못으로 몰아가던 남성 네티즌들은
+
+		계단이니까 밀지말라고 했는데도 가해자들이 피해자들의 팔을 나눠붙잡고 발로 걷어차는가 하면 경찰 진술 때 그것을 인정하는, 명백하게 가해가 드러난 영상이 공개되고 남성 가해자측의 모든 증거가 거짓이라는 것이 드러나 여성피해자들을 탓할 수 없게 되자 언제 그랬냐는 듯 입을 싹 닫았다. 언론조차 사건에 대한 관심을 잃었다.
+	</div>
+
+		<br>여자들은 "머리가 짧다"는 이유만으로 폭행당한다.
+		<br>남자들이 얼마나 "여성성"에 위배되는 여성들을 무서워하는지 알 수 있는 사건이다.
+		<br>남자들은 그들의 기준에 맞지 않는 여성들을 폭행하고, 억압한다.
+		<br>우리는 더욱 더 "여성성"을 버려야한다.
+		<br><p id="final">그들이 우리를 "여자"가 아닌 "사람"으로 볼 수 있도록.</p>
+
+		<br><br>탈코르셋은 이제 선택이 아닌 의무다.
+		</p>
+	</div>
+
+
+	<div id="resource">
+		<p>참고자료
+			<br>
+<br>https://www.bbc.com/korean/news-44329328
+<br>http://www.koreadaily.com/news/read.asp?art_id=6253978
+<br>https://youtu.be/qSVnmliwbtg
+<br>〈‘핫팬츠’와 ‘한뼘바지’의 차이〉《쉼표, 마침표 15호》 
+<br>《까다로운 대상 – 2000년 이후 한국 현대미술》
+<br>《탈코일기》
+<br>
+</p>
+	</div>
+
+
+	<div id="footer">
+		<p id="footerText">© Copyrights 2018 이혜정</p>
+	</div>
+</body>
+</html>
